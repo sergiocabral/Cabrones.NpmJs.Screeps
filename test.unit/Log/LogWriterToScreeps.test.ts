@@ -1,4 +1,4 @@
-import { LogWriterToScreeps } from "../../ts";
+import { LogWriterToScreeps } from '../../ts';
 
 describe('Class LogWriterToScreeps', () => {
   test('Única função de log disponível é console.log', () => {

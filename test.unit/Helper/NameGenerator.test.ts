@@ -1,4 +1,4 @@
-import { NameGenerator } from "../../ts";
+import { NameGenerator } from '../../ts';
 import { InvalidExecutionError } from '@sergiocabral/helper';
 
 describe('Classe NameGenerator', () => {
