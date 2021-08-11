@@ -7,7 +7,7 @@ export class NameGenerator {
   /**
    * Construtor proibido.
    */
-  constructor() {
+  public constructor() {
     throw new InvalidExecutionError('This is a static class.');
   }
 
