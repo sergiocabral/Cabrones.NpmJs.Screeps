@@ -6,13 +6,8 @@ describe('Class LogWriterToScreeps', () => {
 
     const sut = new LogWriterToScreeps();
 
-    const namesOfLogFunction: ('debug' | 'log' | 'info' | 'warn' | 'error')[] = [
-      'debug',
-      'log',
-      'info',
-      'warn',
-      'error'
-    ];
+    const namesOfLogFunction: ('debug' | 'log' | 'info' | 'warn' | 'error')[] =
+      ['debug', 'log', 'info', 'warn', 'error'];
     const functionsOfLogVerified: ((message: string) => void)[] = [];
     const expectedFunctionOfAnyLogType: (message: string) => void = console.log;
 

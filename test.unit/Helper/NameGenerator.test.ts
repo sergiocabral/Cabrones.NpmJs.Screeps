@@ -58,8 +58,12 @@ describe('Classe NameGenerator', () => {
 
     // Assert, Then
 
-    const firstAndLastName = names.map(firstAndLastName => firstAndLastName.split(' '));
-    const firstAndLastNameLength = firstAndLastName.map(names => names.map(name => name.length));
+    const firstAndLastName = names.map(firstAndLastName =>
+      firstAndLastName.split(' ')
+    );
+    const firstAndLastNameLength = firstAndLastName.map(names =>
+      names.map(name => name.length)
+    );
     const firstAndLastNameLengthVerification = firstAndLastNameLength.map(
       lengths => Number(lengths[0]) - Number(lengths[1])
     );

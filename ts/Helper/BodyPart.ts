@@ -1,4 +1,4 @@
-import { InvalidExecutionError } from "@sergiocabral/helper";
+import { InvalidExecutionError } from '@sergiocabral/helper';
 
 /**
  * Manipulação de partes do Creep.

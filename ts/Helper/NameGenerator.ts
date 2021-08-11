@@ -1,4 +1,8 @@
-import { HelperNumeric, InvalidExecutionError, WordGenerator } from '@sergiocabral/helper';
+import {
+  HelperNumeric,
+  InvalidExecutionError,
+  WordGenerator
+} from '@sergiocabral/helper';
 
 /**
  * Gerador de nomes aleatórios.
@@ -17,7 +21,10 @@ export class NameGenerator {
   public static get firstName(): string {
     const minimumSyllables = 1;
     const maximumSyllables = 3;
-    const syllableCount = HelperNumeric.between(minimumSyllables, maximumSyllables);
+    const syllableCount = HelperNumeric.between(
+      minimumSyllables,
+      maximumSyllables
+    );
     return WordGenerator.getWord(syllableCount);
   }
 
