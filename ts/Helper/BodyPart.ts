@@ -1,5 +1,5 @@
 import { InvalidExecutionError } from '@sergiocabral/helper';
-import { PartialRecord } from '@sergiocabral/helper/js/Type/PartialRecord';
+import { BodyPartSet } from '../Type/BodyPartSet';
 
 /**
  * Manipulação de partes do Creep.
@@ -28,9 +28,7 @@ export class BodyPart {
    * Converte uma estrutura de partes em uma lista de partes.
    * @param parts
    */
-  public static toPartList(
-    parts: PartialRecord<BodyPartConstant, number>
-  ): BodyPartConstant[] {
+  public static toPartList(parts: BodyPartSet): BodyPartConstant[] {
     return Object.keys(parts)
       .map(partName => {
         const part = partName as BodyPartConstant;

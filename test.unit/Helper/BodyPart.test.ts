@@ -1,5 +1,4 @@
-import { PartialRecord } from '@sergiocabral/helper/js/Type/PartialRecord';
-import { BodyPart } from '../../ts';
+import { BodyPart, BodyPartSet } from '../../ts';
 import { InvalidExecutionError } from '@sergiocabral/helper';
 
 describe('Classe BodyPart', () => {
@@ -47,7 +46,7 @@ describe('Classe BodyPart', () => {
     test('Recebendo informações das partes', () => {
       // Arrange, Given
 
-      const parts: PartialRecord<BodyPartConstant, number> = {
+      const parts: BodyPartSet = {
         move: 1,
         work: 2,
         carry: 2
@@ -65,7 +64,7 @@ describe('Classe BodyPart', () => {
     test('Recebendo informações vazias', () => {
       // Arrange, Given
 
-      const parts: PartialRecord<BodyPartConstant, number> = {};
+      const parts: BodyPartSet = {};
       const expectedPartsList: BodyPartConstant[] = [];
 
       // Act, When
