@@ -18,8 +18,8 @@ describe('Classe NameGenerator', () => {
 
     const minimumNameLength = 2;
 
-    const name1 = NameGenerator.firstName;
-    const name2 = NameGenerator.firstName;
+    const name1 = NameGenerator.random();
+    const name2 = NameGenerator.random();
 
     // Assert, Then
 
@@ -27,47 +27,40 @@ describe('Classe NameGenerator', () => {
     expect(name2.length).toBeGreaterThanOrEqual(minimumNameLength);
     expect(name1).not.toBe(name2);
   });
-  test('Deve retorna um nome e sobrenome aleatório', () => {
+  test('Deve permitir informar um prefixo', () => {
     // Arrange, Given
+
+    const prefix = Math.random().toString();
+
     // Act, When
 
-    const minimumNameLength = 2;
-
-    const name1 = NameGenerator.firstAndLastName;
-    const name2 = NameGenerator.firstAndLastName;
+    const name = NameGenerator.random(prefix);
 
     // Assert, Then
 
-    expect(name1.length).toBeGreaterThanOrEqual(minimumNameLength * 2);
-    expect(name2.length).toBeGreaterThanOrEqual(minimumNameLength * 2);
-    expect(name1).toContain(' ');
-    expect(name2).toContain(' ');
-    expect(name1).not.toBe(name2);
+    expect(name).not.toBe(prefix);
+    expect(name.startsWith(prefix + ' ')).toBe(true);
   });
-  test('Nome e sobrenome devem ter comprimentos diferentes', () => {
+  test('Deve permitir informar uma lista de prefixos', () => {
     // Arrange, Given
 
-    const sampleCount = 100;
-    const names: string[] = [];
+    const prefix1 = Math.random().toString();
+    const prefix2 = Math.random().toString();
 
     // Act, When
 
-    for (let i = 0; i < sampleCount; i++) {
-      names.push(NameGenerator.firstAndLastName);
+    const names: Record<string, number> = {};
+    for (let i = 0; i < 100; i++) {
+      const name = NameGenerator.random([prefix1, prefix2]);
+      const receivedPrefix = name.split(' ')[0];
+      names[receivedPrefix] =
+        names[receivedPrefix] === undefined ? 1 : names[receivedPrefix] + 1;
     }
 
     // Assert, Then
 
-    const firstAndLastName = names.map(firstAndLastName =>
-      firstAndLastName.split(' ')
-    );
-    const firstAndLastNameLength = firstAndLastName.map(names =>
-      names.map(name => name.length)
-    );
-    const firstAndLastNameLengthVerification = firstAndLastNameLength.map(
-      lengths => Number(lengths[0]) - Number(lengths[1])
-    );
-
-    expect(firstAndLastNameLengthVerification).not.toContain(0);
+    expect(Object.keys(names).length).toEqual(2);
+    expect(Object.keys(names).includes(prefix1)).toEqual(true);
+    expect(Object.keys(names).includes(prefix2)).toEqual(true);
   });
 });

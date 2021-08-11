@@ -1,4 +1,5 @@
 import {
+  HelperList,
   HelperNumeric,
   InvalidExecutionError,
   WordGenerator
@@ -16,27 +17,30 @@ export class NameGenerator {
   }
 
   /**
-   * Um nome aleatório.
+   * Gerador de palavras.
+   * @private
    */
-  public static get firstName(): string {
+  private static readonly wordGenerator = new WordGenerator(
+    ['b', 'c', 'd', 'f', 'l', 'n', 'p', 's', 't', 'w', 'z'],
+    ['a', 'e', 'i', 'o']
+  );
+
+  /**
+   * Gera um nome aleatório.
+   * @param prefix
+   */
+  public static random(prefix?: string | string[]): string {
+    prefix =
+      prefix === undefined
+        ? ''
+        : (typeof prefix === 'string' ? prefix : HelperList.getRandom(prefix)) +
+          ' ';
     const minimumSyllables = 1;
     const maximumSyllables = 3;
     const syllableCount = HelperNumeric.between(
       minimumSyllables,
       maximumSyllables
     );
-    return WordGenerator.getWord(syllableCount);
-  }
-
-  /**
-   * Dois nomes aleatórios, como nome e sobrenome.
-   */
-  public static get firstAndLastName(): string {
-    const firstName = this.firstName;
-    let lastName: string;
-    do {
-      lastName = this.firstName;
-    } while (firstName.length === lastName.length);
-    return `${firstName} ${lastName}`;
+    return prefix + this.wordGenerator.getWord(syllableCount);
   }
 }
