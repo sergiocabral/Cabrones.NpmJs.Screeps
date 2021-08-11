@@ -1,3 +1,4 @@
+import { PartialRecord } from '@sergiocabral/helper/js/Type/PartialRecord';
 import { BodyPart } from '../../ts';
 import { InvalidExecutionError } from '@sergiocabral/helper';
 
@@ -40,6 +41,40 @@ describe('Classe BodyPart', () => {
       // Assert, Then
 
       expect(cost).toBe(expectedCost);
+    });
+  });
+  describe('toPartList() deve montar uma lista de partes', function () {
+    test('Recebendo informações das partes', () => {
+      // Arrange, Given
+
+      const parts: PartialRecord<BodyPartConstant, number> = {
+        move: 1,
+        work: 2,
+        carry: 2
+      };
+      const expectedPartsList = [MOVE, WORK, WORK, CARRY, CARRY];
+
+      // Act, When
+
+      const partsList = BodyPart.toPartList(parts);
+
+      // Assert, Then
+
+      expect(partsList).toEqual(expectedPartsList);
+    });
+    test('Recebendo informações vazias', () => {
+      // Arrange, Given
+
+      const parts: PartialRecord<BodyPartConstant, number> = {};
+      const expectedPartsList: BodyPartConstant[] = [];
+
+      // Act, When
+
+      const partsList = BodyPart.toPartList(parts);
+
+      // Assert, Then
+
+      expect(partsList).toEqual(expectedPartsList);
     });
   });
 });
