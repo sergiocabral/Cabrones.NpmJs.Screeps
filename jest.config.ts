@@ -23,7 +23,7 @@ export default {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -31,7 +31,7 @@ export default {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -62,7 +62,16 @@ export default {
   // A set of global variables that need to be available in all test environments
   globals: {
     OK: 0,
-    ERR: -1
+    ERR: -1,
+    MOVE: 'move',
+    WORK: 'work',
+    CARRY: 'carry',
+    ATTACK: 'attack',
+    RANGED_ATTACK: 'ranged_attack',
+    TOUGH: 'tough',
+    HEAL: 'heal',
+    CLAIM: 'claim',
+    BODYPART_COST: { move: 50, work: 100, attack: 80, carry: 50, heal: 250, ranged_attack: 150, tough: 10, claim: 600 }
   },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
@@ -74,14 +83,7 @@ export default {
   // ],
 
   // An array of file extensions your modules use
-  moduleFileExtensions: [
-    "js",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node"
-  ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -160,9 +162,7 @@ export default {
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
-  testRegex: [
-    "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
-  ],
+  testRegex: ['(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$'],
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
@@ -177,9 +177,9 @@ export default {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  "transform": {
-    "^.+\\.tsx?$": "ts-jest"
-  },
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest'
+  }
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
