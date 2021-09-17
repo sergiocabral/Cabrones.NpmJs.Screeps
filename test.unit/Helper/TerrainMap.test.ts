@@ -1,6 +1,5 @@
 import { InvalidArgumentError } from '@sergiocabral/helper';
-import { TerrainMapConfiguration, TerrainMapType } from '../../ts';
-import { TerrainMap } from '../../ts/Helper/TerrainMap';
+import { TerrainMap, TerrainMapConfiguration, TerrainMapType } from '../../ts';
 
 describe('Class TerrainMap', () => {
   test('Deve usar Room.Terrain para obter dados do terreno', () => {
