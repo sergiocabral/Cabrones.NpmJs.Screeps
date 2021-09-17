@@ -29,7 +29,7 @@ export class TerrainMap {
   /**
    * Matriz original do mapa.
    */
-  private getRawBuffer(): Uint8Array {
+  public getRawBuffer(): Uint8Array {
     const terrain = this.terrain as unknown as {
       getRawBuffer: () => Uint8Array;
     };
@@ -40,7 +40,7 @@ export class TerrainMap {
    * Matriz do mapa.
    * @private
    */
-  private getMatrix(): TerrainMapType[][] {
+  public getMatrix(): TerrainMapType[][] {
     const width = 50;
     return this.getRawBuffer().reduce((result, code: TerrainMapType) => {
       let currentLine = result[result.length - 1] ?? [];
