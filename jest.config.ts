@@ -71,7 +71,10 @@ export default {
     TOUGH: 'tough',
     HEAL: 'heal',
     CLAIM: 'claim',
-    BODYPART_COST: { move: 50, work: 100, attack: 80, carry: 50, heal: 250, ranged_attack: 150, tough: 10, claim: 600 }
+    BODYPART_COST: { move: 50, work: 100, attack: 80, carry: 50, heal: 250, ranged_attack: 150, tough: 10, claim: 600 },
+    TERRAIN_MASK_WALL: 1,
+    TERRAIN_MASK_SWAMP: 2,
+    TERRAIN_MASK_LAVA: 4
   },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
