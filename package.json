@@ -45,6 +45,6 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "@sergiocabral/helper": "^1.29.1"
+    "@sergiocabral/helper": "^1.29.2"
   }
 }
