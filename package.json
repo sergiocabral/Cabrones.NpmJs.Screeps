@@ -1,6 +1,6 @@
 {
   "name": "@sergiocabral/screeps",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "General-purpose features for the Screeps game.",
   "main": "js/index.js",
   "types": "js/index.d.ts",
