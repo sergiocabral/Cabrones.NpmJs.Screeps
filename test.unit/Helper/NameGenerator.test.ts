@@ -63,4 +63,18 @@ describe('Classe NameGenerator', () => {
     expect(Object.keys(names).includes(prefix1)).toEqual(true);
     expect(Object.keys(names).includes(prefix2)).toEqual(true);
   });
+  test('Se informar uma lista vazia como prefixo não afeta o resultado', () => {
+    // Arrange, Given
+
+    const emptyList = Array<string>();
+
+    // Act, When
+
+    const randomName = NameGenerator.random(emptyList);
+
+    // Assert, Then
+
+    expect(randomName.length).not.toBe(0);
+    expect(randomName.includes(' ')).not.toBe(true);
+  });
 });

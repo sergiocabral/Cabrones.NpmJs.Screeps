@@ -33,14 +33,15 @@ export class NameGenerator {
     prefix =
       prefix === undefined
         ? ''
-        : (typeof prefix === 'string' ? prefix : HelperList.getRandom(prefix)) +
-          ' ';
+        : (typeof prefix === 'string'
+            ? prefix
+            : HelperList.getRandom(prefix) ?? '') + ' ';
     const minimumSyllables = 1;
     const maximumSyllables = 3;
     const syllableCount = HelperNumeric.between(
       minimumSyllables,
       maximumSyllables
     );
-    return prefix + this.wordGenerator.getWord(syllableCount);
+    return (prefix + this.wordGenerator.getWord(syllableCount)).trim();
   }
 }
