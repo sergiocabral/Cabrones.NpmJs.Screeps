@@ -1,4 +1,4 @@
-import { InvalidExecutionError } from "@sergiocabral/helper";
+import { InvalidExecutionError } from '@sergiocabral/helper';
 import { ControllerData } from '../../ts/Database/ControllerData';
 
 describe('Classe ControllerData', () => {
