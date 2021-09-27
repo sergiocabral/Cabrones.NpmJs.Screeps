@@ -1,6 +1,17 @@
+import { InvalidExecutionError } from "@sergiocabral/helper";
 import { ControllerData } from '../../ts/Database/ControllerData';
 
 describe('Classe ControllerData', () => {
+  test('Não deve permitir instanciar', () => {
+    // Arrange, Given
+    // Act, When
+
+    const instantiate = () => new ControllerData();
+
+    // Assert, Then
+
+    expect(instantiate).toThrowError(InvalidExecutionError);
+  });
   describe('level', () => {
     test('Quantidade de níveis', () => {
       // Arrange, Given
