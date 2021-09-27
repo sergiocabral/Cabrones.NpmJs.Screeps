@@ -61,6 +61,37 @@ describe('Classe BodyPart', () => {
 
       expect(partsList).toEqual(expectedPartsList);
     });
+    test('A ordem no Object deve ser a ordem no Array', () => {
+      // Arrange, Given
+
+      const order1: BodyPartSet = {
+        move: 1,
+        work: 1,
+        carry: 1,
+        attack: 1,
+        claim: 1
+      };
+      const expectedListForOrder1 = [MOVE, WORK, CARRY, ATTACK, CLAIM];
+
+      const order2: BodyPartSet = {
+        claim: 1,
+        attack: 1,
+        carry: 1,
+        work: 1,
+        move: 1
+      };
+      const expectedListForOrder2 = [CLAIM, ATTACK, CARRY, WORK, MOVE];
+
+      // Act, When
+
+      const partsListForOrder1 = BodyPart.toPartList(order1);
+      const partsListForOrder2 = BodyPart.toPartList(order2);
+
+      // Assert, Then
+
+      expect(partsListForOrder1).toStrictEqual(expectedListForOrder1);
+      expect(partsListForOrder2).toStrictEqual(expectedListForOrder2);
+    });
     test('Recebendo informações vazias', () => {
       // Arrange, Given
 
